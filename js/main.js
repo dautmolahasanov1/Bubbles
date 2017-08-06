@@ -50,16 +50,16 @@ Circle.prototype.draw = function() {
     c.fill();
 };
 
-
 Circle.prototype.delete = function() {
-    if (click.x - this.x < this.radius && click.y - this.y < this.radius && click.x - this.x > -this.radius && click.y - this.y > -this.radius) {
-        this.x = -100;
-        this.x = -100;
-        this.dx = 0;
-        this.dy = 0;
-        score++;
-        end = new Date;
-    }
+    if (click.x - this.x < this.radius && click.y - this.y < this.radius
+        && click.x - this.x > -this.radius && click.y - this.y > -this.radius) {
+            this.x = -100;
+            this.x = -100;
+            this.dx = 0;
+            this.dy = 0;
+            score++;
+            end = new Date;
+        };
 };
 
 Circle.prototype.update = function() {
@@ -84,9 +84,9 @@ Circle.prototype.update = function() {
                 score--;
                 out++;
                 end = new Date;
-            }
-        }
-    }
+            };
+        };
+    };
     c.font = "20px Verdana";
     c.fillStyle = "#999";
     c.fillText("Score: " + score, 10, 50);
@@ -98,13 +98,9 @@ Circle.prototype.update = function() {
         c.fillText("Time: " + (end - start) / 1000, 10, 80);
     };
 
-
-
-
     this.draw();
     this.delete();
 };
-
 
 function clearScore() {
     circleArray = [];
@@ -113,7 +109,7 @@ function clearScore() {
     clear = true;
     click.count = 0
     start = end = now;
-}
+};
 
 function drawSpikes() {
     c.beginPath();
@@ -123,14 +119,13 @@ function drawSpikes() {
         c.lineTo(canvas.width - 10, i - 10);
         c.lineTo(canvas.width, i);
     };
+
     c.strokeStyle = "black";
     c.stroke();
     c.closePath();
 };
 
-
 var circleArray = [];
-
 
 function spawn(number) {
     for (var i = 0; i < number; i++) {
@@ -152,7 +147,6 @@ function spawn(number) {
     }
 };
 spawn(25);
-
 
 function animate() {
     requestAnimationFrame(animate);
